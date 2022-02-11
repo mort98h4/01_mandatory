@@ -6,9 +6,9 @@ def _():
     return static_file("app.css", root=".")
 
 ##############################
-import home             # GET
-import login            # GET
-import signup           # GET
+import home_get             # GET
+import login_get            # GET
+import signup_get           # GET
 
 ##############################
 
