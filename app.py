@@ -9,8 +9,10 @@ def _():
 import home_get             # GET
 import login_get            # GET
 import signup_get           # GET
+import feed_get             # GET
 
 import signup_post          # POST
+import login_post           # POST
 
 ##############################
 
