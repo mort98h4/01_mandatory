@@ -14,6 +14,7 @@ import logout_get           # GET
 
 import signup_post          # POST
 import login_post           # POST
+import delete_post_post     # POST
 
 ##############################
 
