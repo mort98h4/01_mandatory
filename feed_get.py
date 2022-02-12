@@ -19,5 +19,10 @@ def _():
                 if post["id"] == update_post_id:
                     update_post = post
 
-        return dict(logged_in=True, posts=g.POSTS, update_post=update_post)
+        create_new_post = False
+        create_post = request.params.get("new_post")
+        if create_post == "True":
+            create_new_post = True
+
+        return dict(logged_in=True, posts=g.POSTS, update_post=update_post, create_new_post=create_new_post)
     return redirect("/")
