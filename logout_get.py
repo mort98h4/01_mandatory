@@ -8,5 +8,7 @@ def _():
     if encoded_jwt:    
         decoded_jwt = jwt.decode(encoded_jwt, g.JWT_SECRET, algorithms=["HS256"])
         user_session_id = decoded_jwt["user_session_id"]
-        g.SESSIONS.remove(user_session_id)
+        for session in g.SESSIONS:
+            if session == user_session_id:
+                g.SESSIONS.remove(user_session_id)    
     return redirect("/")
