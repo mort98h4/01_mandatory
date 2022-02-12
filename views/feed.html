@@ -17,6 +17,7 @@
                 <div>{{ post["user_first_name"] }}</div>
                 <div>{{ post["user_email"] }}</div>
                 <div>{{ post["post_content"] }}</div>
+                <div>{{ post["post_date"]}}</div>
                 <a href="/feed?update={{ post['id'] }}">Update post</a>
                 <form action="/delete-post" method="POST">
                     <input name="post_id" type="hidden" value='{{ post["id"] }}'>
