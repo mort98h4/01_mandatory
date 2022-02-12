@@ -8,6 +8,10 @@
                 <div>user first name: {{ post["user_first_name"] }}</div>
                 <div>user email: {{ post["user_email"] }}</div>
                 <div>post: {{ post["post_content"] }}</div>
+                <form action="/update-post" method="POST">
+                    <input name="post_id" type="hidden" value='{{ post["id"] }}'>
+                    <button>Update post</button>
+                </form>
                 <form action="/delete-post" method="POST">
                     <input name="post_id" type="hidden" value='{{ post["id"] }}'>
                     <button>Delete post</button>
