@@ -2,12 +2,21 @@
     <main>
         <h1>Feed</h1>
 
+        <a href="/feed?new_post=True">Create post</a>
+        % if create_new_post:
+            <form action="/create-post" method="POST">
+                <div>
+                    <textarea name="post_content" placeholder="Share your thoughts..."></textarea>
+                    <button>Share post</button>
+                </div>
+            </form>
+        % end
         <div id="posts">
             % for post in posts:
             <div class="post">
-                <div>user first name: {{ post["user_first_name"] }}</div>
-                <div>user email: {{ post["user_email"] }}</div>
-                <div>post: {{ post["post_content"] }}</div>
+                <div>{{ post["user_first_name"] }}</div>
+                <div>{{ post["user_email"] }}</div>
+                <div>{{ post["post_content"] }}</div>
                 <a href="/feed?update={{ post['id'] }}">Update post</a>
                 <form action="/delete-post" method="POST">
                     <input name="post_id" type="hidden" value='{{ post["id"] }}'>

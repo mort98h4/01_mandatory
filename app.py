@@ -16,6 +16,7 @@ import signup_post          # POST
 import login_post           # POST
 import delete_post_post     # POST
 import update_post_post     # POST
+import create_post_post     # POST
 
 ##############################
 
