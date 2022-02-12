@@ -1,6 +1,8 @@
-from bottle import post, redirect, request
+from bottle import post, redirect, request, response
 import re
 import g
+import uuid
+import time
 import jwt
 
 @post("/login")
@@ -22,6 +24,19 @@ def _():
         if user["user_email"] == user_email:
             if not user["user_password"] == user_password:
                 return redirect(f"/login?error=user_password_incorrect&user_email={user_email}")
+            
+            session_id = str(uuid.uuid4())
+            g.SESSIONS.append(session_id)
+            user_session = {
+                "user_first_name": user["user_first_name"],
+                "user_last_name": user["user_last_name"],
+                "user_email": user["user_email"],
+                "iat": int(time.time()),
+                "user_session_id": session_id
+            }
+            encoded_jwt = jwt.encode(user_session, g.JWT_SECRET, algorithm="HS256")
+            response.set_cookie("jwt", encoded_jwt)
+
             return redirect("/feed")
 
     return redirect(f"/login?error=non_existing_user&user_email={user_email}")
