@@ -12,4 +12,4 @@ def _():
         user_session_id = decoded_jwt["user_session_id"]
         if user_session_id in g.SESSIONS: 
             return redirect("/feed")
-    return
+    return dict(logged_in=False)

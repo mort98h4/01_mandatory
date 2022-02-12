@@ -44,4 +44,4 @@ def _():
     user_last_name = request.params.get("user_last_name")
     user_email = request.params.get("user_email")
 
-    return dict(error=error, user_first_name=user_first_name, user_last_name=user_last_name, user_email=user_email)
+    return dict(logged_in=False, error=error, user_first_name=user_first_name, user_last_name=user_last_name, user_email=user_email)

@@ -33,4 +33,4 @@ def _():
 
     
 
-    return dict(error=error, user_email=user_email, users=g.USERS)
+    return dict(error=error, user_email=user_email, users=g.USERS, logged_in=False)
