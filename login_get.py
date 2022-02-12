@@ -1,10 +1,18 @@
-from bottle import get, request, view
+from bottle import get, redirect, request, view
 import g
+import jwt
 
 ##############################
 @get("/login")
 @view("login")
 def _():
+    encoded_jwt = request.get_cookie("jwt")
+    if encoded_jwt:
+        decoded_jwt = jwt.decode(encoded_jwt, g.JWT_SECRET, algorithms=["HS256"])
+        user_session_id = decoded_jwt["user_session_id"]
+        if user_session_id in g.SESSIONS:
+            return redirect("/feed")
+
     form_error = request.params.get("error")
     user_email = request.params.get("user_email")
 
