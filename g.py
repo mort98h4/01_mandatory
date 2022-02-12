@@ -7,7 +7,11 @@ USERS = [
     }
 ]
 SESSIONS = []
-POSTS = []
+POSTS = [
+    {"id": "a", "user_first_name": "a", "user_email": "a@a.dk", "post_content": "xxx"},
+    {"id": "b", "user_first_name": "b", "user_email": "b@b.dk", "post_content": "xxx"},
+    {"id": "c", "user_first_name": "c", "user_email": "c@c.dk", "post_content": "xxx"},
+]
 REGEX_EMAIL = '^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
 REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
 JWT_SECRET = "4w50m3 k3Y"
