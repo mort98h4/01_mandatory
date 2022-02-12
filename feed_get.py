@@ -11,5 +11,5 @@ def _():
         user_session_id = decoded_jwt["user_session_id"]
         if user_session_id not in g.SESSIONS:
             return redirect("/login")
-        return dict(logged_in=True)
+        return dict(logged_in=True, posts=g.POSTS)
     return redirect("/")
