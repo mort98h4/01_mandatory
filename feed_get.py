@@ -11,5 +11,13 @@ def _():
         user_session_id = decoded_jwt["user_session_id"]
         if user_session_id not in g.SESSIONS:
             return redirect("/login")
-        return dict(logged_in=True, posts=g.POSTS)
+        
+        update_post = {}
+        update_post_id = request.params.get("update")
+        if update_post_id:
+            for post in g.POSTS:
+                if post["id"] == update_post_id:
+                    update_post = post
+
+        return dict(logged_in=True, posts=g.POSTS, update_post=update_post)
     return redirect("/")

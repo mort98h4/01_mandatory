@@ -8,10 +8,7 @@
                 <div>user first name: {{ post["user_first_name"] }}</div>
                 <div>user email: {{ post["user_email"] }}</div>
                 <div>post: {{ post["post_content"] }}</div>
-                <form action="/update-post" method="POST">
-                    <input name="post_id" type="hidden" value='{{ post["id"] }}'>
-                    <button>Update post</button>
-                </form>
+                <a href="/feed?update={{ post['id'] }}">Update post</a>
                 <form action="/delete-post" method="POST">
                     <input name="post_id" type="hidden" value='{{ post["id"] }}'>
                     <button>Delete post</button>
@@ -20,5 +17,12 @@
             % end
         </div>
 
+        % if update_post:
+            <form action="/update-post" method="POST">
+                <input name="post_id" type="hidden" value='{{ update_post["id"] }}'>
+                <textarea name="post_content">{{ update_post["post_content"] }}</textarea>
+                <button>Update post</button>
+            </form>
+        % end
     </main>
 % include("footer")

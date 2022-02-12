@@ -7,6 +7,6 @@ def _():
     if post_id:
         for index, post in enumerate(g.POSTS):
             if post["id"] == post_id:
-                post["post_content"] = "yyy"
+                post["post_content"] = request.forms.get("post_content")
     
     return redirect("/feed")
