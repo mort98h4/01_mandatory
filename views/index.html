@@ -1,9 +1,24 @@
 % include("header", title="Home")
-    <main>
-        <h1>Welcome!</h1>
-        <h2>Join today</h2>
-        <a href="/signup">Sign up</a>
-        <h3>Already have an account?</h3>
-        <a href="/login">Log in</a>
+    <main class="container-fluid pt-0">
+        <div class="row h-100 justify-content-end align-items-center">
+            <div class="col-lg-6 p-0 pe-lg-3 splash">
+                <div class="overlay"></div>
+            </div>
+            <div class="col-lg-6 text-center pt-5">
+                <div class="row mb-3">
+                    <div class="col-lg-10 col-xl-8 pb-3 border-bottom border-dark">
+                        <h1>Welcome to <span class="logo fs-1 me-1">Twatter</span></h1>
+                        <h2 class="fs-4 mb-3">The only social media that welcomes your bullshit.</h2>
+                        <a class="btn btn-primary text-nowrap" href="/signup">Sign up</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-xl-8">
+                        <h3 class="fs-5 mb-3">Already have an account?</h3>
+                        <a class="btn btn-outline-primary text-nowrap" href="/login">Log in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 % include("footer")
