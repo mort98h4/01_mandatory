@@ -6,6 +6,11 @@ def _():
     return static_file("app.css", root=".")
 
 ##############################
+@get("/images/pexels-denise-duplinski-3819818.jpg")
+def _():
+    return static_file("pexels-denise-duplinski-3819818.jpg", root="./images", mimetype="image/jpg")
+
+##############################
 import home_get             # GET
 import login_get            # GET
 import signup_get           # GET
