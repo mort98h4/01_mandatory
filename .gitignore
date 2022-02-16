@@ -25,3 +25,6 @@ htmlcov/
 .tox/
 
 docs/_locale/_pot/.doctrees/
+
+*.jpg
+*.jpeg
