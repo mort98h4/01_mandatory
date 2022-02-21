@@ -12,7 +12,7 @@ body {
     overflow-y: auto;
     font-size: 1rem;
     /* font-family: sans-serif; */
-    color: #fff
+    /* color: #fff */
 }
 
 header {
@@ -46,6 +46,10 @@ nav:not(.logo-container) a {
     font-family: 'Style Script', cursive;
     font-size: 1.7rem;
     font-style: italic;
+}
+
+span.logo {
+    color: var(--bs-primary);
 }
 
 .logo-container a span {
