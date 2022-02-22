@@ -11,7 +11,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     font-size: 1rem;
-    /* font-family: sans-serif; */
+    font-family: 'Lato', sans-serif;
     /* color: #fff */
 }
 
@@ -43,6 +43,7 @@ nav:not(.logo-container) a {
 }
 
 .logo-container a, span.logo {
+    color: rgba(255,255,255,1);
     font-family: 'Style Script', cursive;
     font-size: 1.7rem;
     font-style: italic;
@@ -85,13 +86,20 @@ main {
 }
 
 .overlay {
-    background-color: rgba(0,0,0, .3);
+    background-color: rgba(0,0,0, .4);
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
+}
+
+form[action="/signup"], form[action="/login"] {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,.1);
 }
 
 @media screen and (min-width: 992px) {
