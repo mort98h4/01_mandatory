@@ -1,4 +1,4 @@
-from bottle import get, redirect, request
+from bottle import get, redirect, request, response
 import jwt
 import g
 
@@ -10,5 +10,6 @@ def _():
         user_session_id = decoded_jwt["user_session_id"]
         for session in g.SESSIONS:
             if session == user_session_id:
-                g.SESSIONS.remove(user_session_id)    
+                g.SESSIONS.remove(user_session_id)  
+                response.set_cookie("jwt", encoded_jwt, expires=0)
     return redirect("/")
