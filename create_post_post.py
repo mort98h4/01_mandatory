@@ -13,6 +13,7 @@ def _():
 
     post = {
         "id": str(uuid.uuid4()),
+        "user_id": decoded_jwt["user_id"],
         "user_first_name": decoded_jwt["user_first_name"],
         "user_email": decoded_jwt["user_email"],
         "post_content": post_content,
