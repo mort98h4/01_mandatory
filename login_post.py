@@ -28,6 +28,7 @@ def _():
             session_id = str(uuid.uuid4())
             g.SESSIONS.append(session_id)
             user_session = {
+                "user_id": user["user_id"],
                 "user_first_name": user["user_first_name"],
                 "user_last_name": user["user_last_name"],
                 "user_email": user["user_email"],
