@@ -45,7 +45,7 @@ def _():
         "user_last_name": user_last_name,
         "user_email": user_email,
         "user_password": user_password,
-        "id": user_id
+        "user_id": user_id
     }
     g.USERS.append(user)
 
