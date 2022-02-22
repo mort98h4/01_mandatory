@@ -6,11 +6,13 @@ def _():
     return static_file("app.css", root=".")
 
 ##############################
+# Allow to use this static file
 @get("/images/pexels-denise-duplinski-3819818.jpg")
 def _():
     return static_file("pexels-denise-duplinski-3819818.jpg", root="./images", mimetype="image/jpg")
 
 ##############################
+# Import functions of web application
 import home_get             # GET
 import login_get            # GET
 import signup_get           # GET
@@ -25,4 +27,5 @@ import create_post_post     # POST
 
 ##############################
 
+# Run localhost with specific port, allow debug, reload on save and use the Paste server
 run(host="127.0.0.1", port=3333, debug=True, reloader=True, server="paste")

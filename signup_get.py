@@ -7,14 +7,20 @@ import g
 @view("signup")
 def _():
     encoded_jwt = request.get_cookie("jwt")
+
+    # If there exists a cookie containing a user
     if encoded_jwt:
         decoded_jwt = jwt.decode(encoded_jwt, g.JWT_SECRET, algorithms=["HS256"])
         user_session_id = decoded_jwt["user_session_id"]
+
+        # If user exists in the sessions list redirect to the feed view
         if user_session_id in g.SESSIONS:
             return redirect("/feed")
 
+    # Get error from the path
     form_error = request.params.get("error")
     
+    # Create error dictionary with error type and error message
     if form_error == "user_first_name_missing":
         error = {"error_type": "user_first_name", "error_message": "Please enter your first name."}
     elif form_error == "user_first_name_invalid":
@@ -40,6 +46,7 @@ def _():
     else:
         error = {}
 
+    # Get user information of valid inputs
     user_first_name = request.params.get("user_first_name")
     user_last_name = request.params.get("user_last_name")
     user_email = request.params.get("user_email")
