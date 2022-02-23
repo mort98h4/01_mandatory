@@ -102,6 +102,56 @@ form[action="/signup"], form[action="/login"] {
     box-shadow: 0 0 20px 5px rgba(0,0,0,.1);
 }
 
+.card {
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,.1);
+}
+
+.card-header:first-child {
+    border-radius: 1rem 1rem 0 0;
+}
+
+.card-footer:first-child {
+    border-radius: 0 0 1rem 1rem;
+}
+
+.card-header, .card-footer {
+    background-color: transparent;
+    border: none;
+}
+
+.update-post {
+    position: absolute;
+    top: 1.125rem;
+    right: 1rem;
+    opacity: .5;
+    text-decoration: none;
+    color: var(--bs-dark);
+    transition: opacity .15s ease-in-out;
+}
+
+.update-post:hover {
+    color: var(--bs-dark);
+    opacity: 1;
+}
+
+.delete-post {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--bs-danger);
+    opacity: .5;
+    transition: opacity .15s ease-in-out;
+}
+
+.delete-post:hover {
+    opacity: 1;
+}
+
 @media screen and (min-width: 992px) {
     .splash {
         position: relative;

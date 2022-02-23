@@ -1,32 +1,54 @@
 % include("header", title="Feed")
-    <main>
-        <h1>Feed</h1>
-
-        <a href="/feed?new_post=True">Create post</a>
-        % if create_new_post:
-            <form action="/create-post" method="POST">
-                <div>
-                    <textarea name="post_content" placeholder="Share your thoughts..."></textarea>
-                    <button>Share post</button>
-                </div>
-            </form>
-        % end
-        <div id="posts">
-            % for post in posts:
-            <div class="post">
-                <div>{{ post["user_first_name"] }}</div>
-                <div>{{ post["user_email"] }}</div>
-                <div>{{ post["post_content"] }}</div>
-                <div>{{ post["post_date"]}}</div>
-                % if post["user_id"] == user["user_id"]:
-                    <a href="/feed?update={{ post['id'] }}">Update post</a>
-                    <form action="/delete-post" method="POST">
-                        <input name="post_id" type="hidden" value='{{ post["id"] }}'>
-                        <button>Delete post</button>
+    <main class="container-md">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-3">
+                <h1>Feed</h1>
+            </div>
+            <div class="col-sm-8 col-lg-6">
+                <a href="/feed?new_post=True">Create post</a>
+                % if create_new_post:
+                    <form action="/create-post" method="POST">
+                        <div>
+                            <textarea name="post_content" placeholder="Share your thoughts..."></textarea>
+                            <button>Share post</button>
+                        </div>
                     </form>
                 % end
             </div>
-            % end
+        </div>
+        <div id="posts" class="row justify-content-center">
+            <div class="col-sm-8 col-lg-6">
+                % for post in posts:
+                <div class="card mb-3 mb-md-4">
+                    <div class="card-header">
+                        <p class="card-title mb-0">{{ post["user_first_name"] }}</p>
+                        <p class="small opacity-50 mb-0">{{ post["user_email"] }}</p>
+                    </div>
+                    <div class="card-body position-relative py-0">
+                        <div class="w-100 border-top mb-3"></div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="mb-0 pe-5">{{ post["post_content"] }}</p>
+                                % if post["user_id"] == user["user_id"]:
+                                    <a class="update-post small" href="/feed?update={{ post['id'] }}">Edit</a>
+                                % end
+                            </div>
+                        </div>
+                        <div class="w-100 border-bottom mt-3"></div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <time class="small opacity-50">{{ post["post_date"]}}</time>
+                        % if post["user_id"] == user["user_id"]:
+                            <form action="/delete-post" method="POST">
+                                <input name="post_id" type="hidden" value='{{ post["id"] }}'>
+                                <button class="delete-post small">Delete post</button>
+                            </form>
+                        % end
+                    </div>
+                </div>
+                % end
+
+            </div>
         </div>
 
         % if update_post:
