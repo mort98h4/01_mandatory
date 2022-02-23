@@ -1,19 +1,18 @@
 % include("header", title="Feed")
     <main class="container-md">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mb-3">
             <div class="col-12 text-center mb-3">
                 <h1>Feed</h1>
             </div>
             <div class="col-sm-8 col-lg-6">
-                <a href="/feed?new_post=True">Create post</a>
-                % if create_new_post:
-                    <form action="/create-post" method="POST">
-                        <div>
-                            <textarea name="post_content" placeholder="Share your thoughts..."></textarea>
-                            <button>Share post</button>
+                <form action="/create-post" method="POST">
+                    <div class="input-group mb-3">
+                        <textarea name="post_content" placeholder="Twat something..." rows="1" class="form-control"></textarea>
+                        <div class="input-group-append ms-3">
+                            <button class="btn btn-primary">Share Twat</button>
                         </div>
-                    </form>
-                % end
+                    </div>
+                </form>
             </div>
         </div>
         <div id="posts" class="row justify-content-center">
