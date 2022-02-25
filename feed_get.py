@@ -28,14 +28,6 @@ def _():
                 if post["id"] == update_post_id:
                     update_post = post
 
-        # Create a new post
-        # create_new_post = False
-        # create_post = request.params.get("new_post")
-
-        # If create_post is "True" set create_new_post to True
-        # if create_post == "True":
-            # create_new_post = True
-
         # Display the view and pass data
         return dict(logged_in=True, posts=g.POSTS, update_post=update_post, user=decoded_jwt)
     
